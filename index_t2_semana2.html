@@ -1,0 +1,57 @@
+<meta charset="UTF-8">
+<script>
+    function cabecalho() {
+        document.write("<h1> >> COMEX << </h1>");
+        document.write("<h2> :: Lista de Clientes </h1>");
+        document.write("<hr>");
+    }
+
+    function calculaIdade(ano, anoNascimento) {
+        return ano - anoNascimento;
+    }
+
+    function calculaMedia(soma, quantidade) {
+        return soma / quantidade;
+    }
+
+    function conteudo() {
+        var anoAtual = parseInt(prompt("Digite o ano atual"));
+        var quantidade = prompt("Quantidade de registros:")
+        var contador = 1;
+        var somaIdades = 0;
+        
+        while(contador <= quantidade) {
+            var nome = prompt("Digite o nome:");
+            var mes = prompt("Qual o mês do nascimento do " + nome + " : [Janeiro/Fevereiro.../Dezembro]");
+            var ano = parseInt(prompt("Qual o ano do nascimento do " + nome + " :[Quatro dígitos - AAAA]"));
+            
+            document.write("<h3> - Código: " + contador + " </h3>");
+            document.write("<p> Nome: " + nome + "</p>");
+            document.write("<p> Mês de nascimento: " + mes+ "</p>");
+            document.write("<p> Ano de nascimento: " + ano + " </p>");
+            document.write("<hr>");
+    
+            var idade = calculaIdade(anoAtual, ano);
+            console.log(idade);
+            somaIdades += idade;
+            contador++;
+        }    
+
+        var mediaIdades = calculaMedia(somaIdades, quantidade).toFixed(2);
+
+        document.write("*** Estatística ***");
+        document.write("<br>");
+        document.write("Soma das idades: " + somaIdades);
+        document.write("<br>");
+        document.write("Média das idades: " + mediaIdades);
+    }
+
+    function rodape() {
+        document.write("<hr>");
+        document.write("<strong>.:: Alura LEVEL UP ::.</strong>");
+    }
+
+    cabecalho();
+    conteudo();
+    rodape();
+</script>

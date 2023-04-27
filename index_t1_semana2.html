@@ -1,0 +1,115 @@
+<meta charset="UTF-8">
+<script>
+    function cabecalho() {
+        document.write("<h1> >> COMEX << </h1>");
+        document.write("<h2> :: Lista de Clientes </h1>");
+        document.write("<hr>");
+    }
+
+    function calculaIdade(ano, anoNascimento) {
+        return ano - anoNascimento;
+    }
+
+    function calculaMedia(soma, quantidade) {
+        return soma / quantidade;
+    }
+
+    function verificarCaracteristicaEtaria(idade) {
+        // Tabulado
+        // AND &&
+        // 0 0 = 0
+        // 0 1 = 0
+        // 1 0 = 0
+        // 1 1 = 1
+
+        // Tabulado
+        // OR ||
+        // 0 0 = 0
+        // 0 1 = 1
+        // 1 0 = 1
+        // 1 1 = 1
+
+        //var caracteristicaEtaria = " --- ";
+
+        if(idade <= 17) {
+            return "ADOLESCENTE";
+        }
+
+        if(idade >= 18 && idade <= 29) {
+            return "JOVEM";
+        }
+
+        if(idade >= 30 && idade <= 59) {
+            return "ADULTO"
+        }
+
+        if (idade >= 60) {
+            return "IDOSO";
+        }
+        
+        //return caracteristicaEtaria;
+    }
+
+    function conteudo() {
+        var anoAtual = prompt("Digite o ano atual");
+        var anoNascimentoFulano = 2006;
+        var anoNascimentoBeltrano = 2000;
+        var anoNascimentoSicrano = 1950;
+
+        document.write("<h3> - Código: 1 </h3>");
+        document.write("<p> Nome: Fulano </p>");
+        document.write("<p> Mês de nascimento: Fevereiro </p>");
+        document.write("<p> Ano de nascimento: " + anoNascimentoFulano + " </p>");
+
+        var idadeFulano = calculaIdade(anoAtual, anoNascimentoFulano);
+
+        var caracteristicaEtariaFulano = verificarCaracteristicaEtaria(idadeFulano);
+
+        document.write("<p> Caracterìstica Etária: " + caracteristicaEtariaFulano + "</p>");
+
+        document.write("<hr>");
+        
+        document.write("<h3> - Código: 2 </h3>");
+        document.write("<p> Nome: Beltrano </p>");
+        document.write("<p> Mês de nascimento: Maio </p>");
+        document.write("<p> Ano de nascimento: " + anoNascimentoBeltrano + " </p>");
+
+        var idadeBeltrano = calculaIdade(anoAtual, anoNascimentoBeltrano);
+
+        var caracteristicaEtariaBeltrano = verificarCaracteristicaEtaria(idadeBeltrano);
+
+        document.write("<p> Caracterìstica Etária: " + caracteristicaEtariaBeltrano + "</p>");
+
+        document.write("<hr>");
+
+        document.write("<h3> - Código: 3 </h3>");
+        document.write("<p> Nome: Sicrano </p>");
+        document.write("<p> Mês de nascimento: Novembro </p>");
+        document.write("<p> Ano de nascimento: " + anoNascimentoSicrano + " </p>");
+
+        var idadeSicrano = calculaIdade(anoAtual, anoNascimentoSicrano);
+
+        var caracteristicaEtariaSicrano = verificarCaracteristicaEtaria(idadeSicrano);
+
+        document.write("<p> Caracterìstica Etária: " + caracteristicaEtariaSicrano + "</p>");
+
+        var somaIdades = idadeFulano + idadeBeltrano + idadeSicrano;
+        var mediaIdades = Math.round(calculaMedia(somaIdades, 3));
+
+        //document.write("<hr>");
+        //document.write("*** Estatística ***");
+        //document.write("<br>");
+        //document.write("Soma das idades: " + somaIdades);
+        //document.write("<br>");
+        //document.write("Média das idades: " + mediaIdades);
+    }
+
+    function rodape() {
+        document.write("<hr>");
+        document.write("<strong>.:: Alura LEVEL UP ::.</strong>");
+    }
+
+    cabecalho();
+    conteudo();
+    rodape();
+</script>

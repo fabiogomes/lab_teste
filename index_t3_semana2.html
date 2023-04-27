@@ -1,0 +1,41 @@
+<meta charset="UTF-8">
+<h1> >> COMEX << </h1>
+<h2> :: Cadastro de Categorias </h2>
+<hr>
+Nome: <input id="nome" />
+<br>
+<button id="botaoCadastro" >Criar</button>
+<hr>
+<script>
+    var incremento = 1;
+    var nome = document.getElementById("nome");
+    nome.focus();
+
+    function desenharTracoHorizontal() {
+        var tag = document.createElement("hr")
+        document.body.appendChild(tag)
+    }
+
+    function mostra(mensagem){
+        var tag = document.createElement("p")
+        tag.innerHTML = mensagem
+        document.body.appendChild(tag)
+    }
+
+    function cadastrar() {
+        var nome = document.getElementById("nome");
+        
+        if(incremento == 1) {
+            mostra("<h2>:: Lista de Categorias</h2>");
+            desenharTracoHorizontal();
+        }
+
+        mostra("Código: " + incremento + " <br>Nome: " + nome.value + "<hr>");
+        nome.value = '';
+        nome.focus()
+        incremento++;
+    }
+
+    var botao = document.getElementById("botaoCadastro");
+    botao.onclick = cadastrar;
+</script>

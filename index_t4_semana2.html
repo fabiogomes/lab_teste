@@ -1,0 +1,52 @@
+<meta charset="UTF-8">
+<h1> >> COMEX << </h1>
+<h2> :: Cadastro de Categorias </h2>
+<hr>
+Nome: <input id="nome" />
+<br><br>
+<button id="botaoCadastro" >Criar</button>
+<button id="botaoExibirLista" >Exibir Lista</button>
+<hr>
+<script>
+    var listaCatetorias = [];
+    var nome = document.getElementById("nome");
+    nome.focus();
+
+    function desenharTracoHorizontal() {
+        var tag = document.createElement("hr")
+        document.body.appendChild(tag)
+    }
+
+    function mostra(mensagem){
+        var tag = document.createElement("p")
+        tag.innerHTML = mensagem
+        document.body.appendChild(tag)
+    }
+
+    function cadastrar() {
+        var nome = document.getElementById("nome");
+        listaCatetorias.push(nome.value);
+        
+        nome.value = '';
+        nome.focus();
+        alert("*** CATEGORIA CADASTRADA COM SUCESSO!!! ***");
+    }
+
+    function mostraLista() {
+        for(var i = 0; i < listaCatetorias.length; i++) {
+            if(i == 0) {
+                mostra("<h2>:: Lista de Categorias</h2>");
+                desenharTracoHorizontal();
+            }
+
+            mostra("Código: " + (i + 1) + " <br>Nome: " + listaCatetorias[i] + "<hr>");
+        }
+    }
+
+    var botao = document.getElementById("botaoCadastro");
+    botao.onclick = cadastrar;
+
+    var botaoExibir = document.getElementById("botaoExibirLista");
+    botaoExibir.onclick = mostraLista;
+
+</script>
